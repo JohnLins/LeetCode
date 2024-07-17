@@ -1,5 +1,6 @@
 class Solution(object):
-    def threeSum(self, nums):
+    def threeSumClosest(self, nums, target):
+
         nums = list(sorted(nums))
         m = 1
         d=1
@@ -19,27 +20,33 @@ class Solution(object):
                 d+=1
 
 
-        triplets = set()
-        for k in range(len(nums)):
+        mostsimilar =nums[0]+nums[1]+nums[len(nums)-1]
+        for k in range(1,len(nums),1):
             i = 0
             j = len(nums)-1
 
             while i != j and i < len(nums) and j >= 0:
 
-                if i!=k and j!=k and nums[k]+nums[i]+nums[j]==0:
+                if i!=k and j!=k and abs(nums[k]+nums[i]+nums[j] - target) <= abs(mostsimilar-target):
                     triple = [nums[i], nums[j], nums[k]]
-                    triple.sort()
-                    triplets.add(tuple(triple))
-                if nums[k]+nums[i]+nums[j] > 0:
+                    mostsimilar = sum(triple)
+
+                if nums[k]+nums[i]+nums[j] > target:
                     j-=1
                 else:
                     i+=1
 
+        return mostsimilar
 
-        return triplets
 
 
         """
         :type nums: List[int]
         :rtype: List[List[int]]
+        """
+
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
         """
