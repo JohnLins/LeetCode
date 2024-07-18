@@ -40,10 +40,6 @@ class Solution(object):
 
 
 
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
 
         """
         :type nums: List[int]
