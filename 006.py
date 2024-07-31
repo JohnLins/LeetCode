@@ -1,4 +1,3 @@
-#Too long
 class Solution(object):
     def convert(self, s, numRows):
         zigzag = []
